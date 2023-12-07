@@ -1,6 +1,6 @@
 # CodeWars_Solutions
 
-As a part of my jurney to became the C++ programmist, practise in writing is the most important thing!
+As a part of my jurney to became the C++ programmist, practise is the most important thing!
 
 So to my everyday's routine I added to solve at least 1 exercise from CodeWars.com
 
