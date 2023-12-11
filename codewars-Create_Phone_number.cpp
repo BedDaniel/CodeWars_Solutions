@@ -1,3 +1,15 @@
+/*
+Write a function that accepts an array of 10 integers (between 0 and 9), 
+that returns a string of those numbers in the form of a phone number.
+
+Example
+createPhoneNumber(int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}) // => returns "(123) 456-7890"
+
+The returned format must be correct in order to complete this challenge.
+
+Don't forget the space after the closing parentheses!
+*/
+
 #include <string>
 #include <iostream>
 
@@ -24,3 +36,17 @@ int main(){
     // std::cout << number;
     return 0;
 }
+
+/* The most clever solution:
+
+#include <string>
+
+std::string createPhoneNumber(const int digits[10]) {
+  std::string res = "(...) ...-....";
+  for (unsigned is = 0, id = 0; is < res.length(); is++)
+    if (res[is] == '.')
+      res[is] = '0' + digits[id++];
+  return res;
+}
+
+*/
