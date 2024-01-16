@@ -1,15 +1,16 @@
 /*
-Complete the function scramble(str1, str2) that returns true if a portion of 
+Complete the function scramble(str1, str2) that returns true if a portion of
 str1 characters can be rearranged to match str2, otherwise returns false.
 
 Notes:
-    Only lower case letters will be used (a-z). No punctuation or digits will be included.
-    Performance needs to be considered.
+	Only lower case letters will be used (a-z). No punctuation or digits will be included.
+	Performance needs to be considered.
 */
 
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <unordered_map>
 
 // This wortks, but is very very slow for longer strins
 // bool scramble(const std::string& s1, const std::string& s2){
@@ -34,28 +35,29 @@ Notes:
 // }
 
 bool scramble(const std::string& s1, const std::string& s2) {
-    std::unordered_map<char, int> charCount;
+	std::unordered_map<char, int> charCount;
 
-    for (char c : s1) {
-        charCount[c]++;
-    }
-    for (char c : s2) {
-        if (charCount.find(c) != charCount.end() && charCount[c] > 0) {
-            charCount[c]--;
-        } else {
-            return false;
-        }
-    }
-    return true;
+	for (char c : s1) {
+		charCount[c]++;
+	}
+	for (char c : s2) {
+		if (charCount.find(c) != charCount.end() && charCount[c] > 0) {
+			charCount[c]--;
+		}
+		else {
+			return false;
+		}
+	}
+	return true;
 }
 
-int main(){
-    std::cout << scramble("rkqodlw", "world") << '\n';
-    std::cout << scramble("cedewaraaossoqqyt", "codewars") << '\n';
-    std::cout << scramble("katas", "steak") << '\n';
-    std::cout << scramble("scriptingjava", "javascript") << '\n';
+int main() {
+	std::cout << scramble("rkqodlw", "world") << '\n';
+	std::cout << scramble("cedewaraaossoqqyt", "codewars") << '\n';
+	std::cout << scramble("katas", "steak") << '\n';
+	std::cout << scramble("scriptingjava", "javascript") << '\n';
 
-    return 0;
+	return 0;
 }
 
 /* The most clever solution and very easy to read, but not the fastest -  O(nlogn) complexity!
